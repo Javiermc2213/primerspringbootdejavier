@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class ApiController {
+
+    private static final Logger logger = LogManager.getLogger(ApiController.class);
+
+    @GetMapping("/api")
+    public String getAPIInfo() {
+        logger.info("Endpoint /api fue llamado");
+        return "API REST es una arquitectura que permite la comunicación entre sistemas utilizando HTTP.";
+    }
+}
+
